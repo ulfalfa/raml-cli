@@ -1,0 +1,34 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  branchId:
+    type: string
+    description: Branch ID, details will follow later. Primary-Key is combination of branchId and contactId?. The field contactId? is optional, but when setting Branchrelation we know the contactId?.
+    maxLength: 36
+  createdAt?:
+    type: datetime
+    description: The relationshio between customer and branch was created at this time.
+  birthdaycard?:
+    type: boolean
+    description: True means - The customer should receive a birthday card from the branch.
+  christmascard?:
+    type: boolean
+    description: True means - The customer should receive a christmascard card from the branch.
+  weddingcard?:
+    type: boolean
+    description: True means - The customer should receive a weddingcard card from the branch.
+  nlprofile?:
+    type: boolean
+    description: True means - The branch created a customer-profile in the CRM VB.Net-Systems.
+  customerCreated?:
+    type: boolean
+    description: True means - The branch (see branchId) created the customer.
+  purchase?:
+    type: boolean
+    description: True means - The customer bought something in the branch.
+  service?:
+    type: boolean
+    description: Yes means - The customer had a service procedure carried out at the branch.
+  supervisorPersnumber?:
+    type: integer
+    description: The personal number of the supervisor of the customer withn the branch.

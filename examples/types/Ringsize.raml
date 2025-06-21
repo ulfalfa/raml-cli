@@ -1,0 +1,21 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  ringsizeId?:
+    type: string
+    description: The UUID of the datarecord
+    maxLength: 36  
+  finger:
+    type: string
+    description: Affected finger (index, middle, ring)
+    enum: ['WFINGERRING', 'WFINGERMIDDLE', 'WFINGERINDEX']
+    #Todo: Makes no sense - look at the values: Max seems to be 13 - since we have an enum here the maxlength check can also be deleted (erl)  
+  hand:
+    type: string
+    description: Affected hand (right or left)
+    enum: ['WLEFT', 'WRIGHT']
+    #Todo: Makes no sense - look at the values: Max seems to be 6 - since we have an enum here the maxlength check can also be deleted (erl)
+  size:
+    type: number
+    description: Ring without unit
+    #TODO: Should we add a propertie for the unit (e.g. mm and inch) for clarity or is this always mm? (there is noj propery in RAMl for that)

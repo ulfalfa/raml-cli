@@ -1,0 +1,49 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  gender?:
+    type: string
+    description: Das Geschlecht einer Person, das in der Datenbank gespeichert wird (kunden.KdAnrede)
+    enum: ['M', 'F', 'O']
+    maxLength: 1  
+  salutation?:
+    type: string
+    description: The salutation of a person (kunden.KdAnrede)
+    maxLength: 16  
+  title?:
+    type: string
+    description: The title of a person (kunden.KdAkadTitel)
+    maxLength: 50  
+  nobility?:
+    type: string
+    description: The aristocratic title of the contact is saved here per keywords (kunden.KdAdel)
+    maxLength: 36  
+  lastName:
+    type: string
+    description: The surname of a person (kunden.KdNachn)
+    maxLength: 50  
+  firstName?:
+    type: string
+    description: The firstname of a person (kunden.KdVorn)
+    maxLength: 50  
+  titleSuffix?:
+    type: string
+    description: name suffix (kunden.KdNamzus)
+    maxLength: 50
+  position?:
+    type: string
+    description: The position of a person in a company (kunden.KdPosition)
+    maxLength: 50
+  dateOfBirth?:
+    type: date-only
+    description: The person's date of birth (kunden. KdGebTag + KdGebMonat + KdGebJahr)  
+  ageEstimated?:
+    type: integer
+    description: The estimated age of the data set is saved here (kunden.KdGebjahrGesch)  
+  identityCardNumber?:
+    type: string
+    description: The contact's ID number is saved here (kunden.AusweisNr)
+    maxLength: 25
+  weddingDate?:
+    type: date-only
+    description: The wedding date of the data record is saved here (kunden.KdHochTag , kunden.KdHochMonat, kunden.KdHochJahr)

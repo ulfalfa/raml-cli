@@ -1,0 +1,27 @@
+#%RAML 1.0 Library
+usage:
+types:
+  Address: !include types/Address.raml
+  Communication: !include types/Communication.raml
+  CustomerCommon: !include types/Customer.common.raml
+  PersonPartial: !include types/Person.partial.raml
+  OrganisationPartial: !include types/Organisation.partial.raml
+  RingSize: !include types/Ringsize.raml
+  BranchRelation: !include types/Branchrelation.raml
+  Customer: [PersonPartial|OrganisationPartial, CustomerCommon]
+  CustomerCompound:
+    type: Customer
+    properties:
+      addresses:
+        type: array
+        items: Address
+      communications:
+        type: array
+        items: Communication
+      ringSizes:
+        type: array
+        items: RingSize
+      branchRelations:
+        type: array
+        items: BranchRelation       
+         

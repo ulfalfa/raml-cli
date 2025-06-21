@@ -1,0 +1,197 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$ref": "#/definitions/CustomerCompound",
+  "definitions": {
+    "CustomerCompound": {
+      "anyOf": [
+        {
+          "anyOf": [
+            {
+              "properties": {
+                "gender": {
+                  "type": "string",
+                  "enum": [
+                    "M",
+                    "F",
+                    "O"
+                  ],
+                  "maxLength": 1,
+                  "description": "Das Geschlecht einer Person, das in der Datenbank gespeichert wird (kunden.KdAnrede)"
+                },
+                "salutation": {
+                  "type": "string",
+                  "maxLength": 16,
+                  "description": "The salutation of a person (kunden.KdAnrede)"
+                },
+                "title": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The title of a person (kunden.KdAkadTitel)"
+                },
+                "nobility": {
+                  "type": "string",
+                  "maxLength": 36,
+                  "description": "The aristocratic title of the contact is saved here per keywords (kunden.KdAdel)"
+                },
+                "lastName": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The surname of a person (kunden.KdNachn)"
+                },
+                "firstName": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The firstname of a person (kunden.KdVorn)"
+                },
+                "titleSuffix": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "name suffix (kunden.KdNamzus)"
+                },
+                "position": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The position of a person in a company (kunden.KdPosition)"
+                },
+                "dateOfBirth": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The person's date of birth (kunden. KdGebTag + KdGebMonat + KdGebJahr)"
+                },
+                "ageEstimated": {
+                  "type": "integer",
+                  "description": "The estimated age of the data set is saved here (kunden.KdGebjahrGesch)"
+                },
+                "identityCardNumber": {
+                  "type": "string",
+                  "maxLength": 25,
+                  "description": "The contact's ID number is saved here (kunden.AusweisNr)"
+                },
+                "weddingDate": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The wedding date of the data record is saved here (kunden.KdHochTag , kunden.KdHochMonat, kunden.KdHochJahr)"
+                }
+              },
+              "type": "object",
+              "required": [
+                "lastName"
+              ]
+            },
+            {
+              "properties": {
+                "gender": {
+                  "type": "string",
+                  "enum": [
+                    "M",
+                    "F",
+                    "O"
+                  ],
+                  "maxLength": 1,
+                  "description": "Das Geschlecht einer Person, das in der Datenbank gespeichert wird (kunden.KdAnrede)"
+                },
+                "salutation": {
+                  "type": "string",
+                  "maxLength": 16,
+                  "description": "The salutation of a person (kunden.KdAnrede)"
+                },
+                "title": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The title of a person (kunden.KdAkadTitel)"
+                },
+                "nobility": {
+                  "type": "string",
+                  "maxLength": 36,
+                  "description": "The aristocratic title of the contact is saved here per keywords (kunden.KdAdel)"
+                },
+                "lastName": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The surname of a person (kunden.KdNachn)"
+                },
+                "firstName": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The firstname of a person (kunden.KdVorn)"
+                },
+                "titleSuffix": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "name suffix (kunden.KdNamzus)"
+                },
+                "position": {
+                  "type": "string",
+                  "maxLength": 50,
+                  "description": "The position of a person in a company (kunden.KdPosition)"
+                },
+                "dateOfBirth": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The person's date of birth (kunden. KdGebTag + KdGebMonat + KdGebJahr)"
+                },
+                "ageEstimated": {
+                  "type": "integer",
+                  "description": "The estimated age of the data set is saved here (kunden.KdGebjahrGesch)"
+                },
+                "identityCardNumber": {
+                  "type": "string",
+                  "maxLength": 25,
+                  "description": "The contact's ID number is saved here (kunden.AusweisNr)"
+                },
+                "weddingDate": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The wedding date of the data record is saved here (kunden.KdHochTag , kunden.KdHochMonat, kunden.KdHochJahr)"
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 255,
+                  "description": "The name of the organization (legacy kunden.FiName1)"
+                },
+                "suffix": {
+                  "type": "string",
+                  "maxLength": 60,
+                  "description": "Company addition, (legacy kunden.FiName2)"
+                },
+                "taxId": {
+                  "type": "string",
+                  "maxLength": 30,
+                  "description": "The VAT ID (USt.-ID) is saved here.   (kunden.geschNr)"
+                }
+              },
+              "type": "object",
+              "required": [
+                "lastName",
+                "name"
+              ]
+            }
+          ]
+        },
+        {
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxLength": 255,
+              "description": "The name of the organization (legacy kunden.FiName1)"
+            },
+            "suffix": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Company addition, (legacy kunden.FiName2)"
+            },
+            "taxId": {
+              "type": "string",
+              "maxLength": 30,
+              "description": "The VAT ID (USt.-ID) is saved here.   (kunden.geschNr)"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  addressId?:
+    type: string
+    description: The UUID of the datarecord
+    maxLength: 36
+  addressType:
+    type: string
+    description: The address-type of the address (zusadr.adrart)
+    enum: ['HOMEADDR', 'OFFICEADDR', 'POSTADDR', 'MISC1ADDR', 'SECONDARYADDR', 'HOLIDAYADDR', 'MISC2ADDR']
+    maxLength: 36
+  country:
+    type: string
+    description: the country of the datarecord (ISO3166-1) (zusadr.land)
+    maxLength: 2
+  zip:
+    type: string
+    description: The zip code of the data record (zusadr.plz)
+    maxLength: 12
+  street:
+    type: string
+    description: street (zusadr.street)
+    maxLength: 50
+  city:
+    type: string
+    description: The city of the data record (zusadr.ort)
+    maxLength: 50
+  buildingNo?:
+    type: string
+    description: The housenumber of the data record (zusadr.Hausnr)
+    maxLength: 50
+  addressAddition?:
+    type: string
+    description: Additional address information (e.g. OG)  (zusadr.Adrzus)
+    maxLength: 60
+  addressRemark?:
+    type: string
+    description: Free text field at the address (zusadr.Bemerkung)
+    maxLength: 60
+  state?:
+    type: string
+    description: State/province of the data set (zusadr.Bundesland)
+    maxLength: 50
+  region?:
+    type: string
+    description: The district of the data set (eg. suburb in spain or district in china) (kunden.District)
+    maxLength: 60
+  urbanisation?: 
+    type: string
+    description: urbanisation, only in Spanien (zusadr.viertel)
+    maxLength: 60
+  isStandard?:
+    type: boolean
+    description: Is a standardadress (YES oder NP)
+  isPostalAddress?:
+    type: boolean
+    description: Is a P.O. Box address (YES=P.O. Box, NO=normal address)
+  company1?:
+    type: string
+    description: Is only displayed in the client for persons with address type Business (kunden.FiName1)
+    maxLength: 255
+  company2?:
+    type: string
+    description:  Is only displayed in the client for persons with address type Business (kunden.FiName2)
+    maxLength: 255  
+  createdAt?:
+    type: datetime
+    description: Time at which the data record was created (zusadr.KdDatAnlage)
+  createdByUserId?:
+    type: string
+    description: User, who created the adress (should be entraId aka eMail) (zusadr.PersAnl) ?? STart mit 4-Stelliger Personalnummer ??
+    maxLength: 20
+  modifiedAt?:
+    type: datetime
+    description: Timestamp of the last modification (zusadr.KdDatAen)
+  modifiedByUserId?:
+    type: string
+    description: User, who modified the adress (should be entraId aka eMail) (zusadr.PersAen) ?? STart mit 4-Stelliger Personalnummer ??
+    maxLength: 20
+  createdByBranchId:
+    type: string
+    description: ID of the branch that created the record (legacy zusadr.NiederlAnl)
+    maxLength: 36
+  modifiedByBranchId:
+    type: string
+    description: ID of the branch that last edited the record (legacy zusadr.NiederlAen)
+    maxLength: 36

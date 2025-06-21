@@ -1,0 +1,79 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  customerType:
+    type: string
+    description: Type of customer, (see legacy kunden.kdart)
+    enum: ['P', 'O']
+    maxLength: 1
+  contactId?:
+    type: string
+    description: Unique identifier of the contact - official ID of a customer. 
+    example:  "39fbb9df-0049-4932-accd-93f2f2d57302"
+    maxLength: 36
+  externalIds?:
+    type: object
+    description: Mappings to other external systems
+    additionalProperties: true #although it's default, it explicitly stated that you always can add more mappings
+    properties: 
+      CRMVBNET:
+        type: string
+        description: Ressource Id in CRMVBNET system. Customer code of the customer (legacy kunden.kdnr)
+        maxLength: 36
+  languageCommunication?:
+    type: string
+    description: Language to communicate stored as IETF Language Tag (e.g., de_DE, en_US), (see legacy kunden.landkat)
+    example: "de_AT"
+    maxLength: 15    
+  assOptOut:
+    type: boolean
+    description: Indicates if the customer don't want to teceive after sales services (see legacy kunden.assNein)
+  blockedReason?:
+    type: string
+    description: Reason why the contact is blocked (see legacy kunden.KdSperreGrund)
+    maxLength: 36
+  createdByBranchId?:
+    type: string
+    description: ID of the branch that created the record (legacy kunden.NiederlAnl)
+    maxLength: 36
+  modifiedByBranchId?:
+    type: string
+    description: ID of the branch that last edited the record (legacy kunden.NiederlAen)
+    maxLength: 36
+  contactType:
+    type: string
+    description: Type of contact
+    enum: ['SERVICEPROVIDER', 'STAFF', 'CUSTOMER', 'TOURGUIDE', 'PRESS', 'SUPPLIER', 'OFFICELOCATION', 'COMPETITOR', 'BRAND']
+    maxLength: 36 
+  emailConsent:
+    type: boolean
+    description: Consent for receiving emails (legacy kunden.TelEmailJa)  
+  eventsOptOut:
+    type: boolean
+    description: Indicates if customer don't want to participate events (legacy kunden.KdEventNein)  
+  postalAdvertismentOptOut:
+    type: boolean
+    description: Indicates if customer don't want to receive postal advertising (legacy kunden.KatalogNein)  
+  taxNumber?:
+    type: string
+    description: Tax number of the contact (legacy kunden.Steuernummer)
+    maxLength: 30    
+  standardAddress?:
+    type: string
+    description: Standard address keyword, (kunden.HauptAdr)
+    enum: ['HOMEADDR', 'OFFICEADDR', 'POSTADDR', 'MISC1ADDR', 'SECONDARYADDR', 'HOLIDAYADDR', 'MISC2ADDR']
+    maxLength: 36  
+  createdAt?:
+    type: datetime
+    description: Timestamp of creation the customer (kunden.KdDatAnlage)
+  createdByUserID?:
+    type: string
+    description: User, who created the customer (should be entraId aka eMail) (kunden.PersAnl)
+    maxLength: 20
+  modifiedAt?:
+    type: datetime
+    description: Timestamp of the last modification (kunden.KdDatAen)    
+  modifiedByUserID?:
+    type: string
+    description: User, who modified the customer (should be entraId aka eMail) (kunden.PersAen)
+    maxLength: 20

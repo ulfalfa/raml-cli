@@ -1,0 +1,15 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the organization (legacy kunden.FiName1)
+    maxLength: 255
+  suffix?:
+    type: string
+    description: Company addition, (legacy kunden.FiName2)
+    maxLength: 60
+  taxId?:
+    type: string
+    description: The VAT ID (USt.-ID) is saved here.   (kunden.geschNr)
+    maxLength: 30

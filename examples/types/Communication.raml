@@ -1,0 +1,24 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  communicationId?:
+    type: string
+    description: The UUID of the data record
+    maxLength: 36
+  value:
+    required: true
+    type: string
+    description: The respective address, e-mail address or telephone number (zusadr.email, zusadr.Mobil, zusadr.telefon)
+    maxLength: 255
+  isStandard:
+    type: boolean
+    description: Boolean to decide whether it is a standard address
+  mediumId:
+    required: true
+    type: string
+    description: Keyword to determine which medium is used
+    enum: ['COMMPHONE', 'COMMEMAIL', 'COMMMOBILE']
+  communicationType?:
+    type: string
+    description: Field for theaddress type
+    enum: ['HOMEADDR', 'OFFICEADDR', 'POSTADDR', 'MISC1ADDR', 'SECONDARYADDR', 'HOLIDAYADDR', 'MISC2ADDR']
